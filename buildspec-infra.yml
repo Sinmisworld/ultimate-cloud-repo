@@ -17,10 +17,7 @@ phases:
       - terraform init -backend-config="bucket=sinmisworld-ult-cloud-terraform-state" -backend-config="key=state.tfstate"
       - terraform validate
       - echo "Planning with DB_USERNAME=$DB_USERNAME"
-      - terraform plan \
-        -var "db_username=${DB_USERNAME}" \
-        -var "db+password=${DB_PASSWORD}" \
-        -out=tfplan
+      - terraform plan -var "db_username=${DB_USERNAME}" -var "db_password=${DB_PASSWORD}" -out=tfplan
 artifacts:
   files:
     - terraform/tfplan
