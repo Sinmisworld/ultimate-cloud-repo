@@ -1,4 +1,9 @@
 terraform {
+  backend "s3" {
+    bucket = "sinmisworld-ult-cloud-terraform-state"
+    key = "state.tfstate"
+    region = "us-east-1"
+  }
   required_version = ">= 1.0.0"
   required_providers {
     aws = {
