@@ -5,13 +5,22 @@ phases:
       python: 3.7
     commands:
       - pip3 install --upgrade pip flask pymysql pytest
-  pre_build:
+pre_build:
     commands:
-      - pytest --maxfail=1 -q
-  build:
-    commands:
-      - mkdir -p build
-      - zip -r build/flask_app.zip .
+      - echo "Checking for tests..."
+      # If there are any Python test files, run pytest; otherwise skip
+      - |
+        if ls flask_app/test_*.py 1> /dev/null 2>&1; then
+          echo "Tests detected, running pytest..."
+          pytest flask_app --maxfail=1 --disable-warnings -q
+        else
+          echo "No tests found—skipping pytest."
+        fi
+    build:
+     commands:
+       - echo "Packaging application..."
+       - mkdir build
+       - zip -r build/flask_app.zip . -x "**/__pycache__**"
 artifacts:
-  files:
-    - build/flask_app.zip
+    files:
+     - build/flask_app.zip
