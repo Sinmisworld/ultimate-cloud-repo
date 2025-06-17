@@ -10,7 +10,7 @@ phases:
     commands:
       - cd terraform
       - terraform fmt -check
-      - terraform init -backend-config="bucket=YOUR_BUCKET" -backend-config="key=state.tfstate"
+      - terraform init -backend-config="bucket=sinmisworld-ult-cloud-terraform-state" -backend-config="key=state.tfstate"
       - terraform validate
       - terraform plan -out=tfplan
 artifacts:
