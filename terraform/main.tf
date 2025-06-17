@@ -15,7 +15,7 @@ terraform {
 
 provider "aws" {
   region  = var.region
-  profile = var.profile
+  #profile = var.profile # no profile: CodeBuild role provides credentials automatically
 }
 
 resource "aws_vpc" "ult" {
