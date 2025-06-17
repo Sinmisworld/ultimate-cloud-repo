@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+    commands:
+      - wget https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip
+      - unzip terraform_1.5.0_linux_amd64.zip && mv terraform /usr/local/bin/
+  build:
+    commands:
+      - cd terraform
+      - terraform fmt -check
+      - terraform init -backend-config="bucket=YOUR_BUCKET" -backend-config="key=state.tfstate"
+      - terraform validate
+      - terraform plan -out=tfplan
+artifacts:
+  files:
+    - terraform/tfplan

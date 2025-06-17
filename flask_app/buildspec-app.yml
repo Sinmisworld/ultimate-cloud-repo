@@ -1,0 +1,17 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      python: 3.7
+    commands:
+      - pip3 install --upgrade pip flask pymysql pytest
+  pre_build:
+    commands:
+      - pytest --maxfail=1 -q
+  build:
+    commands:
+      - mkdir -p build
+      - zip -r build/flask_app.zip .
+artifacts:
+  files:
+    - build/flask_app.zip
