@@ -10,8 +10,10 @@ phases:
       - chmod +x /usr/local/bin/terraform
   build:
     commands:
+      - echo "Initializing Terraform..."
       - cd terraform
-      - terraform fmt -check
+      - echo "Formatting Terraform code..."
+      - terraform fmt
       - terraform init -backend-config="bucket=sinmisworld-ult-cloud-terraform-state" -backend-config="key=state.tfstate"
       - terraform validate
       - terraform plan -out=tfplan
