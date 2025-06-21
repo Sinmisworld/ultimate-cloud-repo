@@ -18,6 +18,7 @@ phases:
       - terraform validate
       - echo "Planning with DB_USERNAME=$DB_USERNAME"
       - terraform plan -var "db_username=${DB_USERNAME}" -var "db_password=${DB_PASSWORD}" -out=tfplan
+      - mv terraform/tfplan .
 artifacts:
   files:
-    - terraform/tfplan
+    - tfplan
