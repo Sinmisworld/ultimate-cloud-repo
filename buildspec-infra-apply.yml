@@ -10,7 +10,7 @@ phases:
 
   pre_build:
     commands:
-     - echo "## Listing root of CODEBUILD_SRC_DIR ##"
+     - echo "## Listing root of CODEBUILD_SRC_DIR## "
      - ls -R .
      - echo "-----------------------------"
   build:
