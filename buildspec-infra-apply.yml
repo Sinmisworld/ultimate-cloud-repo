@@ -8,6 +8,11 @@ phases:
       - mv -f /tmp/terraform /usr/local/bin/
       - chmod +x /usr/local/bin/terraform
 
+  pre_build:
+    commands:
+     - echo "## Listing root of CODEBUILD_SRC_DIR ##"
+     - ls -R .
+     - echo "-----------------------------"
   build:
     commands:
       - cd terraform
