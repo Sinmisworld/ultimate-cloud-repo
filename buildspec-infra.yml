@@ -27,4 +27,4 @@ phases:
       - ls -R .
 artifacts:
   files:
-    - tfplan
+    - terraform/tfplan
