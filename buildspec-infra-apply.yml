@@ -16,4 +16,4 @@ phases:
   build:
     commands:
       - cd terraform
-      - terraform apply -auto-approve ../terraform/tfplan
+      - terraform apply -auto-approve tfplan
