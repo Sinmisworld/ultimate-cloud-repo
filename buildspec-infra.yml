@@ -22,7 +22,7 @@ phases:
   post_build:
     commands:
       - echo "== Contents of terraform folder =="
-      - ls -la terraform
+      - ls
       - echo "== Listing root folder =="
       - ls -R .
 artifacts:
