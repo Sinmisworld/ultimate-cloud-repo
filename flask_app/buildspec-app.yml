@@ -5,7 +5,7 @@ phases:
       python: 3.7
     commands:
       - pip3 install --upgrade pip flask pymysql pytest
-pre_build:
+  pre_build:
     commands:
       - echo "Checking for tests..."
       # If there are any Python test files, run pytest; otherwise skip
