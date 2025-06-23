@@ -26,5 +26,6 @@ phases:
       - echo "== Listing root folder =="
       - ls -R .
 artifacts:
+  base-directory: terraform
   files:
-    - terraform/tfplan
+    - '**/*'
