@@ -16,11 +16,11 @@ phases:
         else
           echo "No tests found—skipping pytest."
         fi
-    build:
-     commands:
-       - echo "Packaging application..."
-       - mkdir build
-       - zip -r build/flask_app.zip . -x "**/__pycache__**"
+  build:
+    commands:
+      - echo "Packaging application..."
+      - mkdir build
+      - zip -r build/flask_app.zip . -x "**/__pycache__**"
 artifacts:
-    files:
+  files:
      - build/flask_app.zip
