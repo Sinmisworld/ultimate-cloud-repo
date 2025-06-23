@@ -15,5 +15,4 @@ phases:
      - echo "-----------------------------"
   build:
     commands:
-      - cd terraform
-      - terraform apply -auto-approve tfplan
+    - terraform apply -auto-approve tfplan
